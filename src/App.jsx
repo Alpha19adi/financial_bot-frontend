@@ -66,7 +66,7 @@ function App() {
     setInput('');
 
     try {
-      const response = await axios.post('http://localhost:3000/chat', {
+      const response = await axios.post('https://financialbot-backend-production.up.railway.app/chat', {
         message: input,
         userId: userId
       });
