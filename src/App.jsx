@@ -51,7 +51,7 @@ function App() {
 
   const getHistory = async () => {
     try {
-      const response = await axios.get(`https://financialbot-backend-production.up.railway.app/history/${userId}`);
+      const response = await axios.get(`http://localhost:3000/history/${userId}`);
       setMessages(response.data.messages);
     } catch (error) {
       console.error('Error fetching history:', error);
@@ -66,7 +66,7 @@ function App() {
     setInput('');
 
     try {
-      const response = await axios.post('https://financialbot-backend-production.up.railway.app/chat', {
+      const response = await axios.post('http://localhost:3000/chat', {
         message: input,
         userId: userId
       });
@@ -89,7 +89,7 @@ function App() {
 
     try {
       setUploadStatus('Uploading...');
-      const response = await axios.post('https://financialbot-backend-production.up.railway.app/upload', formData, {
+      const response = await axios.post('http://localhost:3000/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
